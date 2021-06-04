@@ -15,18 +15,17 @@ introduction <%= @user.introduction %>
     <%= f.label :opinion %>
     <%= f.text_field :opinion %>
   </div>
+  <div>
+    <%= f.submit 'Create Book' %>
+  </div>
 <% end %>
 
 <h3>Book detail</h3>
 <table>
   <tr>
-    <th></th>
-    <th>Title</th>
-    <th>Opinion</th>
-  </tr>
-  <tr>
     <td>
       <%= attachment_image_tag @book.user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+      <%= @book.user.name %>
     </td>
     <td>
       <%= @book.title %>
@@ -34,5 +33,13 @@ introduction <%= @user.introduction %>
     <td>
       <%= @book.opinion %>
     </td>
+    <% if @book.user = current_user %>
+      <td>
+        <%= link_to 'Edit', edit_book_path %>
+      </td>
+      <td>
+        <%= link_to 'destroy', book_path(@book), method: :delete %>
+      </td>
+    <% end %>
   </tr>
 </table>

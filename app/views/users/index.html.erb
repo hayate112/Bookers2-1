@@ -1,0 +1,40 @@
+<h3>User info</h3>
+<%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+name <%= @user.name %>
+introduction <%= @user.introduction %>
+
+<%= link_to 'edit', edit_user_path %>
+
+<h3>New book</h3>
+<%= form_with model: @book, local: true do |f| %>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div>
+    <%= f.label :opinion %>
+    <%= f.text_field :opinion %>
+  </div>
+<% end %>
+
+<h3>Users</h3>
+<table>
+  <tr>
+    <th>image</th>
+    <th>name</th>
+    <th></th>
+  </tr>
+  <% @users.each do |user| %>
+    <tr>
+      <td>
+        <%= user.profile_image %>
+      </td>
+      <td>
+        <%= user.name %>
+      </td>
+      <td>
+        <%= link_to 'Show', user_path(user.id) %>
+      </td>
+    </tr>
+  <% end %>
+</table>

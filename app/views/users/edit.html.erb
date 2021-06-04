@@ -1,2 +1,19 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<h3>User info</h3>
+
+<%= form_with model: @user, local: true do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div>
+    <%= f.label :profile_image %>
+    <%= f.attachment_field :profile_image %>
+  </div>
+  <div>
+    <%= f.label :introduction %>
+    <%= f.text_area :introduction %>
+  </div>
+  <div>
+    <%= f.submit 'Update User' %>
+  </div>
+<% end %>

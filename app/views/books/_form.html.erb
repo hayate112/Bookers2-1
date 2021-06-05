@@ -1,0 +1,14 @@
+<h3>New book</h3>
+<%= form_with model: book, local: true do |f| %>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div>
+    <%= f.label :opinion %>
+    <%= f.text_area :opinion %>
+  </div>
+  <div>
+    <%= f.submit 'Create Book' %>
+  </div>
+<% end %>

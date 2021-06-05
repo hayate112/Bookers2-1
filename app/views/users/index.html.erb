@@ -1,9 +1,9 @@
 <h3>User info</h3>
-<%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
-name <%= @user.name %>
-introduction <%= @user.introduction %>
+<%= attachment_image_tag current_user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+name <%= current_user.name %>
+introduction <%= current_user.introduction %>
 
-<%= link_to 'edit', edit_user_path %>
+<%= link_to 'edit', edit_user_path(current_user.id) %>
 
 <h3>New book</h3>
 <%= form_with model: @book, local: true do |f| %>
@@ -13,7 +13,7 @@ introduction <%= @user.introduction %>
   </div>
   <div>
     <%= f.label :opinion %>
-    <%= f.text_field :opinion %>
+    <%= f.text_area :opinion %>
   </div>
   <div>
     <%= f.submit 'Create Book' %>
@@ -30,7 +30,7 @@ introduction <%= @user.introduction %>
   <% @users.each do |user| %>
     <tr>
       <td>
-        <%= user.profile_image %>
+        <%= attachment_image_tag user, :profile_image, :fill, 60, 60, format: 'jpeg', fallback: "no_image.jpg", size: '60x60' %>
       </td>
       <td>
         <%= user.name %>

@@ -6,7 +6,7 @@ introduction <%= @user.introduction %>
 <%= link_to 'edit', edit_user_path %>
 
 <h3>New book</h3>
-<%= form_with model: @book_, local: true do |f| %>
+<%= form_with model: @book_new, local: true do |f| %>
   <div>
     <%= f.label :title %>
     <%= f.text_field :title %>

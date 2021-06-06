@@ -6,19 +6,7 @@ introduction <%= @user.introduction %>
 <%= link_to 'edit', edit_user_path %>
 
 <h3>New book</h3>
-<%= form_with model: @book, local: true do |f| %>
-  <div>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-  </div>
-  <div>
-    <%= f.label :body %>
-    <%= f.text_area :body %>
-  </div>
-  <div>
-    <%= f.submit 'Create Book' %>
-  </div>
-<% end %>
+<%= render 'books/form', book: @book %>
 
 <h3>Books</h3>
 <table>
@@ -39,7 +27,7 @@ introduction <%= @user.introduction %>
         <% end %>
       </td>
       <td>
-        <%= book.opinion %>
+        <%= book.body %>
       </td>
     </tr>
   <% end %>

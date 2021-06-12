@@ -40,6 +40,9 @@
         <%= link_to 'login', new_user_session_path %>
       </li>
     <% end %>
+    <% if flash[:notice] %>
+      <p><%= flash[:notice] %></p>
+    <% end %>
     <%= yield %>
   </body>
 </html>

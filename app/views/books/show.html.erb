@@ -1,9 +1,9 @@
 <h3>User info</h3>
-<%= attachment_image_tag @book.user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
-name <%= @book.user.name %>
-introduction <%= @book.user.introduction %>
+<%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+name <%= @user.name %>
+introduction <%= @user.introduction %>
 
-<%= link_to 'edit', edit_user_path %>
+<%= link_to 'edit', edit_user_path(current_user.id) %>
 
 <h3>New book</h3>
 <%= render 'books/form', book: @book_new %>
@@ -12,9 +12,9 @@ introduction <%= @book.user.introduction %>
 <table>
   <tr>
     <td>
-      <%= link_to user_path(@book.user.id) do %>
-        <%= attachment_image_tag @book.user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
-        <%= @book.user.name %>
+      <%= link_to user_path(@user.id) do %>
+        <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+        <%= @user.name %>
       <% end %>
     </td>
     <td>

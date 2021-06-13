@@ -25,7 +25,7 @@ introduction <%= @user.introduction %>
     <td>
       <%= @book.body %>
     </td>
-    <% if @book.user = current_user %>
+    <% if @book.user == current_user %>
       <td>
         <%= link_to 'Edit', edit_book_path %>
       </td>

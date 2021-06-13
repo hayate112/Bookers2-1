@@ -3,7 +3,7 @@
 name <%= current_user.name %>
 introduction <%= current_user.introduction %>
 
-<%= link_to 'edit', edit_user_path(current_user.id) %>
+<%= link_to '', edit_user_path(current_user.id) %>
 
 <h3>New book</h3>
 <%= render 'books/form', book: @book %>

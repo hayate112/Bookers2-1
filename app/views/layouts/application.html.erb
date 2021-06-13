@@ -41,9 +41,8 @@
         <%= link_to 'login', new_user_session_path, class: 'fas fa-sign-in-alt nav-link text-light' %>
       </li>
     <% end %>
-    <% if flash[:notice] %>
-      <p><%= flash[:notice] %></p>
-    <% end %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
 </html>

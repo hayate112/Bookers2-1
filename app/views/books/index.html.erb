@@ -6,7 +6,7 @@ introduction <%= current_user.introduction %>
 <%= link_to 'edit', edit_user_path(current_user.id) %>
 
 <h3>New book</h3>
-<%= render 'books/form', book: @book_new %>
+<%= render 'books/form', book: @book %>
 
 <h3>Books</h3>
 <table>
